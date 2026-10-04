@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import {
   MapPin,
   Phone,
@@ -18,7 +18,7 @@ import {
   Check,
 } from "lucide-react";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
@@ -27,7 +27,7 @@ const fadeUp = {
   },
 };
 
-const stagger = {
+const stagger: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,

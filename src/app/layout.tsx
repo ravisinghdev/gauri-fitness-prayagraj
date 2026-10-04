@@ -12,25 +12,64 @@ const oswald = Oswald({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Warrior Gym | Get Fit With Gauri | Prayagraj",
-  description: "Join Warrior Gym in Prayagraj. Get fit with Gauri. We offer structured training, personal training, strength and conditioning in a supportive environment.",
-  keywords: "gym, Prayagraj, fitness, workout, personal training, Warrior Gym, Get Fit With Gauri",
+  title: {
+    default: "WARRIOR GYM | Get Fit With Gauri | Prayagraj",
+    template: "%s | WARRIOR GYM",
+  },
+  description: "Experience a higher standard of fitness at Warrior Gym, Prayagraj. Premium facilities, expert personal training, and intelligent programming by Gauri.",
+  keywords: ["Warrior Gym", "Gauri Fitness", "Gym in Prayagraj", "Personal Training", "Fitness Center Prayagraj", "Govind Plaza Gym", "Dhoomanganj Gym"],
+  authors: [{ name: "Gauri" }],
+  creator: "Warrior Gym",
+  metadataBase: new URL("https://warriorgym.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Warrior Gym | Get Fit With Gauri",
-    description: "Start your fitness journey at Prayagraj's premium fitness destination.",
-    url: "https://warriorgym.demo",
-    siteName: "Warrior Gym",
+    title: "WARRIOR GYM | Get Fit With Gauri",
+    description: "Experience a higher standard of fitness at Warrior Gym, Prayagraj. Premium facilities, expert personal training, and intelligent programming.",
+    url: "https://warriorgym.vercel.app",
+    siteName: "WARRIOR GYM",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop",
+        url: "/gauri/1.jpg",
         width: 1200,
         height: 630,
+        alt: "Warrior Gym Premium Facility",
       }
     ],
     locale: "en_IN",
     type: "website",
-  }
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WARRIOR GYM | Get Fit With Gauri",
+    description: "Start your fitness journey at Prayagraj's premium fitness destination.",
+    images: ["/gauri/1.jpg"],
+  },
+  icons: {
+    icon: "/gauri/logo.png",
+    shortcut: "/gauri/logo.png",
+    apple: "/gauri/logo.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
