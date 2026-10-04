@@ -15,7 +15,6 @@ import {
   Menu,
   X,
   ChevronDown,
-  Check,
 } from "lucide-react";
 
 const fadeUp: Variants = {
@@ -39,17 +38,17 @@ const faqs = [
   {
     question: "Do you offer personal training?",
     answer:
-      "Yes. Our elite coaches provide highly customized 1-on-1 programming tailored specifically to your biometric data and goals.",
+      "Yes. Our coaches provide customized programming tailored specifically to your fitness goals.",
   },
   {
     question: "Is there parking available?",
     answer:
-      "We offer dedicated, secure parking for all members directly outside the facility at Govind Plaza.",
+      "Parking is available directly outside the facility at Govind Plaza.",
   },
   {
     question: "What are your operating hours?",
     answer:
-      "We are open from 5:30 AM to 10:30 PM, Monday through Saturday. Sundays are reserved for active recovery clinics and deep cleaning.",
+      "Please contact us on WhatsApp for our current operating hours and batch timings.",
   },
   {
     question: "Do you accommodate beginners?",
@@ -365,22 +364,22 @@ export default function Home() {
               {[
                 {
                   title: "Strength",
-                  desc: "Build foundational power through progressive overload.",
+                  desc: "Build foundational power through progressive training.",
                   icon: Dumbbell,
                 },
                 {
                   title: "Conditioning",
-                  desc: "Optimize metabolic pathways and cardiovascular health.",
+                  desc: "Improve your stamina, endurance, and overall health.",
                   icon: Flame,
                 },
                 {
                   title: "Hypertrophy",
-                  desc: "Targeted cellular adaptation for muscular growth.",
+                  desc: "Targeted training for muscle growth and definition.",
                   icon: Activity,
                 },
                 {
                   title: "Personal",
-                  desc: "One-on-one architecture for your specific physiology.",
+                  desc: "Tailored guidance designed for your specific fitness level.",
                   icon: CheckCircle,
                 },
               ].map((program, i) => (
@@ -412,7 +411,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MEMBERSHIPS (NEW) */}
+        {/* MEMBERSHIPS / PLANS */}
         <section
           id="memberships"
           className="py-32 px-6 border-t border-white/5"
@@ -420,47 +419,30 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
               <h2 className="text-4xl md:text-6xl font-medium tracking-tight mb-6">
-                Select your tier.
+                Find the right plan for your goals.
               </h2>
               <p className="text-xl text-zinc-400 font-light">
-                Transparent structuring for absolute clarity.
+                Explore membership options designed around your fitness journey.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 items-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  name: "Base",
-                  price: "₹2,500",
-                  freq: "/mo",
-                  features: [
-                    "Full facility access",
-                    "Cardio & Weight zones",
-                    "Locker access",
-                  ],
+                  name: "Strength",
+                  desc: "Focus on compound movements and functional strength.",
                 },
                 {
-                  name: "Elite",
-                  price: "₹4,500",
-                  freq: "/mo",
-                  features: [
-                    "Everything in Base",
-                    "Group training classes",
-                    "Monthly body composition",
-                    "Priority support",
-                  ],
-                  popular: true,
+                  name: "Fat Loss",
+                  desc: "High-intensity training combined with endurance.",
                 },
                 {
-                  name: "Athlete",
-                  price: "₹8,000",
-                  freq: "/mo",
-                  features: [
-                    "Everything in Elite",
-                    "Personalized diet plans",
-                    "2 PT sessions/mo",
-                    "Recovery zone access",
-                  ],
+                  name: "Muscle Building",
+                  desc: "Volume-based training for optimal muscle growth.",
+                },
+                {
+                  name: "General Fitness",
+                  desc: "Balanced programming for overall health and vitality.",
                 },
               ].map((tier, i) => (
                 <motion.div
@@ -468,43 +450,23 @@ export default function Home() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.15, duration: 0.8 }}
-                  className={`glass-panel p-10 flex flex-col h-full relative ${tier.popular ? "border-white/30 shadow-[0_0_40px_rgba(255,255,255,0.05)] scale-105 z-10 bg-white/5" : ""}`}
+                  transition={{ delay: i * 0.1, duration: 0.8 }}
+                  className="glass-panel p-10 flex flex-col h-full bg-white/5"
                 >
-                  {tier.popular && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-1 rounded-full text-xs font-medium tracking-wide">
-                      Most Selected
-                    </div>
-                  )}
-                  <h3 className="text-2xl font-medium tracking-tight mb-2">
+                  <h3 className="text-2xl font-medium tracking-tight mb-4">
                     {tier.name}
                   </h3>
-                  <div className="mb-8 flex items-baseline gap-1">
-                    <span className="text-5xl font-medium tracking-tighter">
-                      {tier.price}
-                    </span>
-                    <span className="text-zinc-500 font-light">
-                      {tier.freq}
-                    </span>
-                  </div>
-
-                  <div className="flex-grow space-y-4 mb-10">
-                    {tier.features.map((feat, j) => (
-                      <div key={j} className="flex items-center gap-3">
-                        <Check
-                          size={16}
-                          className="text-zinc-400 flex-shrink-0"
-                        />
-                        <span className="text-zinc-300 font-light">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-
+                  <p className="text-zinc-400 font-light mb-10 flex-grow">
+                    {tier.desc}
+                  </p>
+                  
                   <a
-                    href="#contact"
-                    className={`pill-btn w-full py-4 font-medium text-lg ${tier.popular ? "bg-white text-black hover:bg-zinc-200" : "bg-white/10 text-white hover:bg-white/20"}`}
+                    href="https://wa.me/919305632033"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pill-btn w-full py-4 text-center font-medium text-lg bg-white text-black hover:bg-zinc-200"
                   >
-                    Select {tier.name}
+                    Enquire Now
                   </a>
                 </motion.div>
               ))}
@@ -512,101 +474,47 @@ export default function Home() {
           </div>
         </section>
 
-        {/* TRANSFORMATION & TESTIMONIALS */}
+        {/* NEUTRAL COMMITMENT SECTION */}
         <section
           id="transformations"
-          className="py-32 px-6 relative border-t border-white/5"
+          className="py-32 px-6 relative border-t border-white/5 flex items-center justify-center min-h-[60vh]"
         >
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1 }}
-                  className="text-4xl md:text-5xl font-medium tracking-tight mb-10"
-                >
-                  Data-driven <span className="text-zinc-500">outcomes.</span>
-                </motion.h2>
-                <div className="space-y-6">
-                  {[
-                    {
-                      quote:
-                        "I've trained at several premium facilities, but Warrior Gym stands apart. The programming is meticulous.",
-                      name: "Rahul Verma",
-                      title: "Software Engineer",
-                    },
-                    {
-                      quote:
-                        "The personalized attention changed my trajectory. Lost 14kg in 6 months while building serious strength.",
-                      name: "Anjali Tiwari",
-                      title: "Architect",
-                    },
-                  ].map((testimonial, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.2 }}
-                      className="glass-panel p-8"
-                    >
-                      <p className="text-lg text-zinc-300 font-light leading-relaxed mb-6">
-                        &quot;{testimonial.quote}&quot;
-                      </p>
-                      <div>
-                        <p className="font-medium text-white">
-                          {testimonial.name}
-                        </p>
-                        <p className="text-sm text-zinc-500 mt-1">
-                          {testimonial.title}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="glass-panel aspect-[4/5] w-full flex items-center justify-center relative overflow-hidden"
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="text-4xl md:text-6xl font-medium tracking-tight mb-8"
+            >
+              Real People. <span className="text-zinc-500">Real Progress.</span>
+            </motion.h2>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 1 }}
+              className="text-xl md:text-2xl text-zinc-400 font-light leading-relaxed mb-12 max-w-2xl mx-auto"
+            >
+              Your fitness journey is personal. Start yours with the right environment, consistent training, and a plan built around your goals.
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 1 }}
+            >
+              <a
+                href="https://wa.me/919305632033"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 pill-btn px-10 py-4 bg-white/10 text-white font-medium text-lg hover:bg-white/20 transition-colors"
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-zinc-900 to-black"></div>
-                <div className="relative z-10 flex flex-col items-center p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-8 backdrop-blur-md">
-                    <Activity className="text-white h-8 w-8" />
-                  </div>
-                  <p className="text-2xl font-medium text-white tracking-wide mb-2">
-                    Priya S. &mdash; Transformation
-                  </p>
-                  <p className="text-zinc-400 font-light mb-8">
-                    Comprehensive recomposition protocol.
-                  </p>
-                  <div className="flex gap-8 border-t border-white/10 pt-8 w-full justify-center">
-                    <div>
-                      <p className="text-4xl font-medium text-white tracking-tighter">
-                        -12
-                      </p>
-                      <p className="text-xs text-zinc-500 uppercase tracking-widest mt-1">
-                        Kilograms
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-4xl font-medium text-white tracking-tighter">
-                        24
-                      </p>
-                      <p className="text-xs text-zinc-500 uppercase tracking-widest mt-1">
-                        Weeks
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+                Start Your Journey <ArrowRight size={18} />
+              </a>
+            </motion.div>
           </div>
         </section>
 
@@ -747,12 +655,19 @@ export default function Home() {
                       <CheckCircle size={32} strokeWidth={1.5} />
                     </div>
                     <h4 className="text-2xl font-medium mb-2">
-                      Request received.
+                      Demo Submission Successful
                     </h4>
-                    <p className="text-zinc-400 font-light">
-                      We will contact you shortly to schedule your initial
-                      consultation.
+                    <p className="text-zinc-400 font-light mb-8 max-w-[280px] mx-auto">
+                      This is a frontend demonstration. No data was stored. Please contact the gym directly via WhatsApp.
                     </p>
+                    <a
+                      href="https://wa.me/919305632033"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center pill-btn px-6 py-3 bg-[#25D366]/10 text-[#25D366] text-sm font-medium hover:bg-[#25D366]/20 gap-2 border border-[#25D366]/20"
+                    >
+                      <MessageCircle size={18} /> Chat on WhatsApp
+                    </a>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleFormSubmit} className="space-y-8">
@@ -791,7 +706,22 @@ export default function Home() {
                         </option>
                         <option value="strength">Strength</option>
                         <option value="fat-loss">Fat Loss</option>
-                        <option value="muscle">Hypertrophy</option>
+                        <option value="muscle">Muscle Building</option>
+                        <option value="general">General Fitness</option>
+                      </select>
+                    </div>
+                    <div>
+                      <select
+                        defaultValue=""
+                        id="time"
+                        name="time"
+                        aria-label="Preferred training time"
+                        className="w-full bg-transparent border-b border-white/20 pb-4 text-zinc-400 focus:outline-none focus:border-white focus:text-white transition-colors text-lg font-light appearance-none rounded-none cursor-pointer"
+                      >
+                        <option value="" disabled>Preferred training time</option>
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                        <option value="evening">Evening</option>
                       </select>
                     </div>
                     <button
